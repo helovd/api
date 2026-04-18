@@ -5,17 +5,41 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * Corresponde à tabela produto
- */
+ */ 
+@Entity
+@Table(name = "produto")
 public class Produto {
-	
-	private Integer id;
-	private String nome;
-	private String descricao;
-	private BigDecimal preco;//valores decimais como 12.34
-	private LocalDateTime dataCriacao;
-	
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+ 
+    @Column(name = "nome", nullable = false, length = 100)
+    private String nome;
+ 
+    @Column(name = "descricao", length = 500)
+    private String descricao;
+ 
+    @Column(name = "preco", nullable = false, precision = 10, scale = 2)
+    private BigDecimal preco;
+ 
+    @Column(name = "data_criacao")
+    private LocalDateTime dataCriacao;
+ 
+    // ... construtores, getters, setters, equals, hashCode e toString
+
+ 
+
+
 	/**
 	 * Precisamos criar:
 	 * 1 - Construtor padrão(sem parâmetros) e publico - OK
@@ -127,4 +151,5 @@ public class Produto {
 				+ ", dataCriacao=" + dataCriacao + "]";
 	}
 	
+	 
 }
