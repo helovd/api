@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
  * Corresponde à tabela produto
  */ 
 @Entity
-@Table(name = "produto")
+@Table(name = "tb_produto")
 public class Produto {
  
     @Id
@@ -36,7 +36,19 @@ public class Produto {
     private LocalDateTime dataCriacao;
  
     // ... construtores, getters, setters, equals, hashCode e toString
-
+    
+    /*!!!!COMO ESTAVA ANTES DAS LINHAS ACIMA!!!!
+     * @Entity
+     * public class Produto{
+     * 
+     *	 @Id
+     *	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+     *	 private Integer id;
+     *	 private String nome;
+     * 	private String descricao;
+     *	 private BigDecimal preco;
+     *	 private LocalDateTime dataCriacao;
+     */
  
 
 
